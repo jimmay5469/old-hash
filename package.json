@@ -1,8 +1,7 @@
 {
   "name": "old-hash",
   "version": "0.0.0",
-  "description": "Small description for old-hash goes here",
-  "private": true,
+  "description": "Helps you keep your project's dependencies current",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -12,11 +11,11 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "",
+  "repository": "git@github.com:jimmay5469/old-hash.git",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 0.12.0"
   },
-  "author": "",
+  "author": "jimmay5469",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",

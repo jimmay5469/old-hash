@@ -1,7 +1,6 @@
-# Old-hash
+# old-hash [![Build Status](https://travis-ci.org/jimmay5469/old-hash.svg)](https://travis-ci.org/jimmay5469/old-hash)
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Helps you keep your project's dependencies current.
 
 ## Prerequisites
 
