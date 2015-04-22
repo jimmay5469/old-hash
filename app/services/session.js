@@ -30,6 +30,8 @@ export default Ember.Service.extend({
           this.set('githubToken', authData.github.accessToken);
           resolve();
         }
+      }, {
+        scope: 'repo'
       });
     });
   },
