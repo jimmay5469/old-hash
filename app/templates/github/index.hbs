@@ -1,0 +1,12 @@
+{{#if session.isGithubAuthenticated}}
+  <div>Your repositories:</div>
+  <ul>
+    {{#each model as |repo|}}
+      <li>{{repo.id}}</li>
+    {{else}}
+      <li>None found</li>
+    {{/each}}
+  </ul>
+{{/if}}
+
+{{outlet}}

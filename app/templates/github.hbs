@@ -10,15 +10,6 @@
   <div>
     <button {{action 'invalidateGithub'}}>Logout</button>
   </div>
-
-  <div>Your repositories:</div>
-  <ul>
-    {{#each model as |repo|}}
-      <li>{{repo.id}}</li>
-    {{else}}
-      <li>None found</li>
-    {{/each}}
-  </ul>
 {{else}}
   <div>
     <button {{action 'authenticateGithub'}}>Login</button>
