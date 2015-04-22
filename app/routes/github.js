@@ -8,8 +8,7 @@ export default Ember.Route.extend({
     }
   },
   model: function() {
-    var currentUser = this.get('session.githubUsername');
-    return this.store.find('githubUser', currentUser).then(function(user) {
+    return this.get('session.githubUser').then(function(user) {
       return user.get('githubRepositories');
     });
   }

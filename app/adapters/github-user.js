@@ -4,11 +4,18 @@ export default GithubAdapter.extend({
   pathForType: function() {
     return 'users';
   },
+  buildURL: function(type, id, snapshot) {
+    var builtURL = this._super(type, id, snapshot);
+    if(id==='') {
+      builtURL = builtURL.replace('users', 'user');
+    }
+    return builtURL;
+  },
   find: function(store, type, id, snapshot) {
     return this._super(store, type, id, snapshot).then(function(data) {
       return {
         githubUser: {
-          id: id,
+          id: data.login,
           name: data.name,
           avatarUrl: data.avatar_url,
           links: {
