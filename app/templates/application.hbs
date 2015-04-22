@@ -3,17 +3,5 @@
     old-hash
   {{/link-to}}
 </h2>
-{{#if session.isGithubAuthenticated}}
-  <div>
-    <img src='{{session.githubUser.avatarUrl}}' />
-  </div>
-  <div>
-    <button {{action 'logout'}}>Logout</button>
-  </div>
-{{else}}
-  <div>
-    <button {{action 'login'}}>Login</button>
-  </div>
-{{/if}}
 
 {{outlet}}

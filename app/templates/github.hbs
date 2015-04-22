@@ -1,6 +1,28 @@
-<ul>
-  {{#each model as |repo|}}
-    <li>{{repo.id}}</li>
-  {{/each}}
-</ul>
+<h3>
+  {{#link-to 'github'}}
+    GitHub
+  {{/link-to}}
+</h3>
+{{#if session.isGithubAuthenticated}}
+  <div>
+    <img src='{{session.githubUser.avatarUrl}}' />
+  </div>
+  <div>
+    <button {{action 'invalidateGithub'}}>Logout</button>
+  </div>
+
+  <div>Your repositories:</div>
+  <ul>
+    {{#each model as |repo|}}
+      <li>{{repo.id}}</li>
+    {{else}}
+      <li>None found</li>
+    {{/each}}
+  </ul>
+{{else}}
+  <div>
+    <button {{action 'authenticateGithub'}}>Login</button>
+  </div>
+{{/if}}
+
 {{outlet}}
