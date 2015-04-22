@@ -1,4 +1,8 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<h2 id="title">
+  {{#link-to 'index'}}
+    old-hash
+  {{/link-to}}
+</h2>
 {{#if session.isGithubAuthenticated}}
   <div>Logged In</div>
 {{else}}
