@@ -9,13 +9,15 @@ export default Ember.Service.extend({
   store: Ember.inject.service(),
   isGithubAuthenticated: Ember.computed.notEmpty('githubToken'),
   githubToken: Ember.computed(function(key, value) {
-    if(value) {
+    if(value || value==='') {
       localStorage.setItem('githubToken', value);
     }
     return localStorage.getItem('githubToken');
   }),
   githubUser: Ember.computed('githubToken', function() {
-    return this.get('store').find('githubUser', '');
+    if(this.get('githubToken')) {
+      return this.get('store').find('githubUser', '');
+    }
   }),
   authenticateGithub: function() {
     return new Ember.RSVP.Promise((resolve, reject)=> {
@@ -30,5 +32,8 @@ export default Ember.Service.extend({
         }
       });
     });
+  },
+  invalidateGithub: function() {
+    this.set('githubToken', '');
   }
 });

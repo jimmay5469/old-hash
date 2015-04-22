@@ -4,9 +4,16 @@
   {{/link-to}}
 </h2>
 {{#if session.isGithubAuthenticated}}
-  <div>Logged In</div>
+  <div>
+    <img src='{{session.githubUser.avatarUrl}}' />
+  </div>
+  <div>
+    <button {{action 'logout'}}>Logout</button>
+  </div>
 {{else}}
-  <button {{action 'login'}}>Login</button>
+  <div>
+    <button {{action 'login'}}>Login</button>
+  </div>
 {{/if}}
 
 {{outlet}}

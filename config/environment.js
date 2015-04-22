@@ -19,7 +19,8 @@ module.exports = function(environment) {
     },
 
     contentSecurityPolicy: {
-      'connect-src': "'self' wss://*.firebaseio.com https://api.github.com"
+      'connect-src': "'self' wss://*.firebaseio.com https://api.github.com",
+      'img-src': "'self' https://*.githubusercontent.com"
     },
 
     firebaseUrl: 'https://old-hash.firebaseio.com'
