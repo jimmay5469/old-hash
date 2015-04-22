@@ -5,6 +5,10 @@ export default Ember.Route.extend({
   actions: {
     login: function() {
       this.get('session').authenticateGithub();
+    },
+    logout: function() {
+      this.get('session').invalidateGithub();
+      window.location.reload();
     }
   }
 });
