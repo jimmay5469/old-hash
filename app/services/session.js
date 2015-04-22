@@ -15,7 +15,7 @@ export default Ember.Service.extend({
     return localStorage.getItem('githubToken');
   }),
   githubUser: Ember.computed('githubToken', function() {
-    if(this.get('githubToken')) {
+    if(this.get('isGithubAuthenticated')) {
       return this.get('store').find('githubUser', '');
     }
   }),
