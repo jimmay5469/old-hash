@@ -13,6 +13,12 @@ export default Ember.Service.extend({
     }
     return localStorage.getItem('githubToken');
   }).volatile(),
+  githubUsername: Ember.computed(function(key, value) {
+    if(value) {
+      localStorage.setItem('githubUsername', value);
+    }
+    return localStorage.getItem('githubUsername');
+  }).volatile(),
   authenticateGithub: function() {
     return new Ember.RSVP.Promise((resolve, reject)=> {
       Firebase.goOnline();
@@ -22,6 +28,7 @@ export default Ember.Service.extend({
           reject(error);
         } else {
           this.set('githubToken', authData.github.accessToken);
+          this.set('githubUsername', authData.github.username);
           resolve();
         }
       });
