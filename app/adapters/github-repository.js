@@ -1,6 +1,6 @@
-import ApplicationAdapter from './application';
+import GithubAdapter from './github';
 
-export default ApplicationAdapter.extend({
+export default GithubAdapter.extend({
   pathForType: function() {
     return 'repos';
   }
