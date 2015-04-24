@@ -6,6 +6,9 @@ export default DS.RESTSerializer.extend({
     return this._super(store, primaryType, payload);
   },
   extractSingle: function(store, primaryType, payload, recordId) {
+    if(recordId==='') {
+      payload.repos_url = payload.repos_url.replace(`users/${payload.login}`, 'user');
+    }
     payload = { githubUser: payload };
     return this._super(store, primaryType, payload, recordId);
   },
