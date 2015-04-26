@@ -1,15 +1,10 @@
-import DS from 'ember-data';
+import GithubSerializer from './github';
 
-export default DS.RESTSerializer.extend({
-  extractArray: function(store, primaryType, payload) {
-    payload = { githubUsers: payload };
-    return this._super(store, primaryType, payload);
-  },
+export default GithubSerializer.extend({
   extractSingle: function(store, primaryType, payload, recordId) {
     if(recordId==='') {
       payload.repos_url = payload.repos_url.replace(`users/${payload.login}`, 'user');
     }
-    payload = { githubUser: payload };
     return this._super(store, primaryType, payload, recordId);
   },
   normalize: function(type, hash, prop) {
