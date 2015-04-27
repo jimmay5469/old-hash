@@ -1,4 +1,4 @@
-# old-hash [![Build Status](https://travis-ci.org/jimmay5469/old-hash.svg)](https://travis-ci.org/jimmay5469/old-hash)
+# old-hash [![Build Status](https://travis-ci.org/jimmay5469/old-hash.svg?branch=master)](https://travis-ci.org/jimmay5469/old-hash)
 
 Helps you keep your project's dependencies current.
 
