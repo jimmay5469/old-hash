@@ -7,14 +7,14 @@ export default Ember.Service.extend({
   }),
 
   store: Ember.inject.service(),
-  isGithubAuthenticated: Ember.computed.notEmpty('githubToken'),
-  githubToken: Ember.computed(function(key, value) {
+  isGithubAuthenticated: Ember.computed.notEmpty('githubAccessToken'),
+  githubAccessToken: Ember.computed(function(key, value) {
     if(value || value==='') {
-      localStorage.setItem('githubToken', value);
+      localStorage.setItem('githubAccessToken', value);
     }
-    return localStorage.getItem('githubToken');
+    return localStorage.getItem('githubAccessToken');
   }),
-  githubUser: Ember.computed('githubToken', function() {
+  githubUser: Ember.computed('githubAccessToken', function() {
     if(this.get('isGithubAuthenticated')) {
       return this.get('store').find('githubUser', '');
     }
@@ -27,7 +27,7 @@ export default Ember.Service.extend({
         if (error) {
           reject(error);
         } else {
-          this.set('githubToken', authData.github.accessToken);
+          this.set('githubAccessToken', authData.github.accessToken);
           resolve();
         }
       }, {
@@ -36,6 +36,6 @@ export default Ember.Service.extend({
     });
   },
   invalidateGithub: function() {
-    this.set('githubToken', '');
+    this.set('githubAccessToken', '');
   }
 });
