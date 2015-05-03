@@ -2,7 +2,7 @@
   <div>Your repositories:</div>
   <ul>
     {{#each model as |repo|}}
-      <li>{{repo.id}}</li>
+      <li>{{repo.fullName}}</li>
     {{else}}
       <li>None found</li>
     {{/each}}
