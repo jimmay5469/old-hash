@@ -1,0 +1,10 @@
+<div>{{model.login}}'s Repositories:</div>
+<ul>
+  {{#each model.githubRepositories as |repo|}}
+    <li>{{repo.fullName}}</li>
+  {{else}}
+    <li>None found</li>
+  {{/each}}
+</ul>
+
+{{outlet}}
