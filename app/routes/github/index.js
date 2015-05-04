@@ -9,5 +9,5 @@ export default Ember.Route.extend({
     return this.get('session.githubUser').then(function(user) {
       return user.get('githubRepositories');
     });
-  },
+  }
 });

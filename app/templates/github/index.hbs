@@ -2,7 +2,11 @@
   <div>Your repositories:</div>
   <ul>
     {{#each model as |repo|}}
-      <li>{{repo.fullName}}</li>
+      <li>
+        {{#link-to 'github.repository' session.githubUser.login repo.name}}
+          {{repo.fullName}}
+        {{/link-to}}
+      </li>
     {{else}}
       <li>None found</li>
     {{/each}}
