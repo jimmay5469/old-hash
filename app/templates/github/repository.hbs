@@ -1,5 +1,22 @@
 {{#link-to 'github.owner' model.owner.login}}{{model.owner.login}}{{/link-to}} / {{#link-to 'github.repository' model.owner.login model.name}}{{model.name}}{{/link-to}}
 <br />
 {{model.description}}
+<br />
+<br />
+{{model.defaultBranch.name}}
+<br />
+<br />
+NPM
+<ul>
+{{#each model.defaultBranch.npmDependencies as |dependency|}}
+  <li>{{if dependency.isDev '[D] '}}{{dependency.name}}: {{dependency.requestedVersion}}</li>
+{{/each}}
+</ul>
+Bower
+<ul>
+{{#each model.defaultBranch.bowerDependencies as |dependency|}}
+  <li>{{if dependency.isDev '[D] '}}{{dependency.name}}: {{dependency.requestedVersion}}</li>
+{{/each}}
+</ul>
 
 {{outlet}}
